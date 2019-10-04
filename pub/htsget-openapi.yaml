@@ -16,7 +16,7 @@ paths:
   /reads/{id}:
     get:
       summary: Gets the reads from a pre-indexed id
-      operationId: searchReadId
+      operationId: searchGetReadId
       description: |
         Searches a pre-indexed object id.
       parameters:
@@ -152,7 +152,7 @@ paths:
 
     post:
       summary: Gets the reads from a pre-indexed id
-      operationId: searchReadId
+      operationId: searchPostReadId
       description: |
         Searches a pre-indexed object id.
       parameters:
@@ -170,6 +170,8 @@ paths:
             schema:
               $ref: 'https://gist.githubusercontent.com/GrishaH/e973b5b2870e99f01c5ffb7e29a86f7b/raw/40f1aa474449587b264d34c1b4db5507912244f4/htsget_post.schema.json'
 
+# Cannot reuse those since responses does not accept $ref directly, yet:
+# https://github.com/OAI/OpenAPI-Specification/issues/1586
       responses:
         '200':
           description: results matching criteria
